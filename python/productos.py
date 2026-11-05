@@ -1,3 +1,4 @@
+
 from dataclasses import dataclass
 
 @dataclass
@@ -21,12 +22,30 @@ productos = [
     Producto("Lámpara", "Hogar", 35, 7)
 ]
 
-# Selección
-productos_caros = list(
-    filter(lambda p: p.precio > 30, productos)
-)
+# 1. Selección
+productos_caros = list(filter(lambda p: p.precio > 30, productos))
 
 print("Productos con precio mayor a $30:")
-
 for p in productos_caros:
     print(p.nombre)
+
+
+# 2. Transformación
+nombres = list(map(lambda p: p.nombre, productos))
+
+print("\nNombres de los productos:")
+print(nombres)
+
+
+# 3. Validación
+sin_stock = any(p.stock == 0 for p in productos)
+
+print("\n¿Existe algún producto sin stock?")
+print(sin_stock)
+
+
+# 4. Conteo
+cantidad = sum(1 for p in productos if p.precio > 30)
+
+print("\nCantidad de productos con precio mayor a $30:")
+print(cantidad)

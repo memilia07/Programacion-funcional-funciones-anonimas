@@ -37,9 +37,31 @@ public class ProductoApp {
         );
 
       
+       // 1. Selección
         System.out.println("Productos con precio mayor a $30:");
         productos.stream()
             .filter(p -> p.precio > 30)
             .forEach(p -> System.out.println(p.nombre));
+
+        // 2. Transformación
+        System.out.println("\nNombres de los productos:");
+        productos.stream()
+            .map(p -> p.nombre)
+            .forEach(System.out::println);
+
+        // 3. Validación
+        boolean sinStock = productos.stream()
+            .anyMatch(p -> p.stock == 0);
+
+        System.out.println("\n¿Existe algún producto sin stock?");
+        System.out.println(sinStock);
+
+        // 4. Conteo
+        long cantidad = productos.stream()
+            .filter(p -> p.precio > 30)
+            .count();
+
+        System.out.println("\nCantidad de productos con precio mayor a $30:");
+        System.out.println(cantidad);
     }
 }
