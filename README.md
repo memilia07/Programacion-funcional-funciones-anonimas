@@ -1,5 +1,5 @@
 # Programacion-funcional-funciones-anonimas
-**CASO 1: Apache Spark**
+## CASO 1: Apache Spark
 
 **Problema que resuelve:** 
 
@@ -51,7 +51,7 @@
 [https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.apply.html](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.apply.html)
 
 
-**PARTE 2 – Entender: ¿qué es una función anónima?**
+## PARTE 2 – Entender: ¿qué es una función anónima?
 
 **2.1 ¿Qué es una función anónima y de dónde viene el nombre lambda?**
 
