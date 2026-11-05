@@ -24,7 +24,7 @@
 
 [ Documentación oficial de Apache Spark (spark.apache.org)](https://spark.apache.org/docs/latest/rdd-programming-guide).
 
-**CASO 2: Pandas en Python**
+## CASO 2: Pandas en Python
 
 
 **Problema que resuelve:**
