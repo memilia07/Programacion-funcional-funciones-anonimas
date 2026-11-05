@@ -53,7 +53,7 @@
 
 ## PARTE 2 – Entender: ¿qué es una función anónima?
 
-**2.1 ¿Qué es una función anónima y de dónde viene el nombre lambda?**
+### 2.1 ¿Qué es una función anónima y de dónde viene el nombre lambda?
 
 - Una función anónima es una función que no tiene un nombre propio y que permite realizar una operación directamente. Se utiliza para ejecutar instrucciones sin necesidad de declarar una función por separado.
 - El nombre lambda viene del cálculo lambda, un modelo matemático creado por Alonzo Church, que utiliza la letra griega λ (lambda) para representar funciones.
@@ -64,7 +64,7 @@
 
   En este ejemplo, x => x * 2 es una función anónima que recibe cada número y lo multiplica por 2.
 
-  **2.2 ¿En qué se diferencia de una función nombrada? Escribe la misma lógica de ambas formas.**
+### 2.2 ¿En qué se diferencia de una función nombrada? Escribe la misma lógica de ambas formas.
 
 - La diferencia es que una función nombrada tiene un nombre que permite identificarla y llamarla cuando sea necesario, mientras que una función anónima no tiene un nombre propio y normalmente se utiliza directamente en una operación.
 
@@ -74,7 +74,7 @@
 
 Las dos realizan la misma operación, que es multiplicar un número por 2. La diferencia está en la forma en que se escriben y se utilizan.
 
-**2.3 ¿Qué significa que las funciones sean ciudadanos de primera clase? ¿Por qué eso permite pasar una lambda a map o filter?**
+### 2.3 ¿Qué significa que las funciones sean ciudadanos de primera clase? ¿Por qué eso permite pasar una lambda a map o filter?
 
 - Significa que las funciones se pueden utilizar como cualquier otro valor. Es decir, se pueden guardar en variables, enviar como argumentos a otras funciones y devolver como resultados.
   Esto permite pasar funciones anónimas directamente a operaciones como map y filter, porque estas reciben una función para realizar su trabajo.
@@ -85,7 +85,7 @@ Las dos realizan la misma operación, que es multiplicar un número por 2. La di
 
 En este ejemplo, map utiliza una función anónima para multiplicar los números por 2, mientras que filter utiliza otra para seleccionar solamente los números pares.
 
-**2.4 ¿Qué es un closure? Muestra una lambda que use una variable definida fuera de ella.**
+### 2.4 ¿Qué es un closure? Muestra una lambda que use una variable definida fuera de ella.
 
 - Un closure es una función que utiliza una variable que fue definida fuera de ella. La función puede acceder a esa variable y utilizarla aunque no forme parte de sus parámetros.
 
@@ -129,6 +129,202 @@ En este ejemplo, map utiliza una función anónima para multiplicar los números
 - Se utiliza `count` para contar cuántos productos cumplen con la condición establecida.
 
 **Resultado:** 5 productos.
+
+  ## Parte 4 – Ampliar: cuatro operaciones nuevas
+
+  ### 4.1 Operaciones elegidas
+
+Para esta parte elegí cuatro operaciones de las colecciones de Scala:
+
+1. **sortBy:** pertenece a la familia de ordenar.
+2. **groupBy:** pertenece a la familia de agrupar.
+3. **partition:** pertenece a la familia de dividir una lista.
+4. **find:** pertenece a la familia de buscar.
+
+ ### 4.2 Fichas de cada operación
+
+#### 1. sortBy – Ordenar
+
+**¿Qué hace?**
+
+- Ordena los elementos de una lista según una característica, como el precio de los productos.
+
+**¿Qué función anónima recibe?**
+
+- Recibe una función anónima que devuelve el valor por el cual se desea ordenar. En este caso, devuelve el precio del producto, que es un número decimal (`Double`).
+
+**Ejemplo en Scala:**
+
+```scala
+productos.sortBy(p => p.precio)
+```
+
+**Salida:**
+
+<img width="1012" height="312" alt="image" src="https://github.com/user-attachments/assets/18f92792-2a20-4a87-ba09-2438eaa5d153" />
+
+Los productos aparecen ordenados desde el de menor precio hasta el de mayor precio.
+
+**Problema que resuelve:**
+
+- Permite organizar los productos por precio para identificar los más económicos y los más costosos. Se relaciona con la transformación y organización de datos.
+  
+---
+
+### 2. groupBy – Agrupar
+
+**¿Qué hace?**
+
+Agrupa los elementos de una lista según una característica que tengan en común, por ejemplo, la categoría de los productos.
+
+**¿Qué función anónima recibe?**
+
+Recibe una función anónima que devuelve el valor que se utilizará para agrupar los elementos. En este caso, devuelve la categoría del producto, que es un texto (`String`).
+
+**Ejemplo en Scala:**
+
+```scala
+productos.groupBy(p => p.categoria)
+```
+
+**Salida:**
+
+scala
+
+<img width="1195" height="181" alt="image" src="https://github.com/user-attachments/assets/f19044d2-cf8e-48da-a80b-74ff9a9af115" />
+
+
+**Problema que resuelve:**
+
+Permite organizar los productos por categorías para conocer qué artículos pertenecen a cada grupo. Se relaciona con la organización de datos.
+
+---
+
+#### 3. partition – Dividir una lista
+
+**¿Qué hace?**
+
+Divide una lista en dos grupos: los elementos que cumplen una condición y los que no la cumplen.
+
+**¿Qué función anónima recibe?**
+
+Recibe una función anónima que devuelve un valor booleano (`true` o `false`), dependiendo de si el producto cumple con la condición.
+
+**Ejemplo en Scala:**
+
+```scala
+productos.partition(p => p.precio > 30)
+```
+
+**Salida:**
+
+scala
+
+<img width="417" height="287" alt="image" src="https://github.com/user-attachments/assets/f394d1d7-74d2-402e-9a80-3f270520f931" />
+
+
+
+**Problema que resuelve:**
+
+Permite separar los productos costosos de los económicos para analizar sus precios. Se relaciona con el problema de selección.
+
+---
+
+#### 4. find – Buscar
+
+**¿Qué hace?**
+
+Busca el primer elemento de una lista que cumple con una condición y devuelve ese elemento.
+
+**¿Qué función anónima recibe?**
+
+Recibe una función anónima que devuelve un valor booleano (`true` o `false`) para comprobar si el elemento cumple con la condición.
+
+**Ejemplo en Scala:**
+
+```scala
+productos.find(p => p.nombre == "Audífonos")
+```
+
+**Salida:**
+
+scala
+
+<img width="851" height="80" alt="image" src="https://github.com/user-attachments/assets/33686309-8428-418e-998c-6baf3fb7024f" />
+
+
+**Problema que resuelve:**
+
+Permite encontrar un producto específico dentro de un inventario sin tener que revisar manualmente toda la lista. Se relaciona con el problema de búsqueda.
+
+---
+
+### 4.3 Combinar operaciones
+
+**Pregunta:** ¿Cómo podemos separar los productos tecnológicos según si cuestan más de $40, después de ordenarlos por precio?
+
+**Código en Scala:**
+
+```scala
+val resultadoCombinado = productos
+  .filter(p => p.categoria == "Tecnología")
+  .sortBy(p => p.precio)
+  .partition(p => p.precio > 40.0)
+
+resultadoCombinado
+```
+
+**Explicación de cada paso:**
+
+1. `filter`: selecciona los productos que pertenecen a la categoría Tecnología.
+2. `sortBy`: ordena los productos seleccionados de menor a mayor precio.
+3. `partition`: divide los productos en dos listas, los que cuestan más de $40 y los que cuestan $40 o menos.
+
+**Operaciones utilizadas:**
+
+- `filter`: operación vista en clase.
+- `sortBy`: operación nueva.
+- `partition`: operación nueva.
+
+**Resultado:**
+
+
+<img width="1191" height="107" alt="image" src="https://github.com/user-attachments/assets/43fc2996-1131-4d4c-9b5f-3fe0a2dbd52a" />
+
+
+<img width="1200" height="97" alt="image" src="https://github.com/user-attachments/assets/109e8406-d39c-4c4b-914b-ea21272ea28b" />
+
+
+Se obtienen dos listas de productos tecnológicos, separadas según su precio.
+
+
+## Parte 5 – Comparar y concluir 
+
+### 5.1 Scala, Java y Python frente a frente
+
+
+<img width="942" height="427" alt="Captura de pantalla 2026-11-05 030636" src="https://github.com/user-attachments/assets/e1a8c7bf-cc98-40e6-ad12-c44d7e218aab" />
+
+
+
+**¿En qué lenguaje fue más natural resolver los problemas?**
+
+- Para mí, Scala fue el lenguaje más natural porque sus operaciones permiten trabajar directamente con listas y las funciones anónimas tienen una sintaxis sencilla. Además, el código queda más corto y fácil de entender.
+
+**¿En qué tipo de problema encontraste más diferencias entre lenguajes y por qué?**
+
+- Encontré más diferencias en el problema de validación, porque en Scala se utiliza exists, en Java anyMatch y en Python any. Aunque los tres permiten comprobar si algún producto cumple una condición, cada lenguaje utiliza una función diferente para hacerlo.
+
+
+### 5.2 Conclusion
+
+Las funciones anónimas son importantes porque permiten realizar operaciones sobre listas de una manera más sencilla, sin necesidad de crear funciones adicionales para cada tarea. Con ellas podemos seleccionar, transformar, buscar y comprobar información de los elementos de una lista, haciendo que el código sea más corto y fácil de mantener.
+
+Un ejemplo de su utilidad se puede observar en los sistemas de inventario, donde es necesario revisar los productos, conocer sus precios, identificar cuáles no tienen stock y organizarlos por categorías. Gracias a las funciones anónimas podemos realizar estas operaciones de forma rápida y eficiente, facilitando el manejo de la información.
+
+
+ 
+
 
   
 
