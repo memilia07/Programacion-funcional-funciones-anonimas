@@ -95,6 +95,41 @@ En este ejemplo, map utiliza una función anónima para multiplicar los números
 
   En este ejemplo, la variable factor está definida fuera de la función anónima. Sin embargo, la función puede utilizarla para multiplicar el número recibido por 3. Esto es un ejemplo de closure.
 
+
+  ## Parte 3: Problemas prácticos
+
+### 3.1 Selección
+
+**Pregunta:** ¿Qué productos tienen un precio mayor a $30?
+
+- Se utiliza `filter` para recorrer la lista y seleccionar solamente los productos que cumplen con la condición de tener un precio mayor a $30.
+
+**Resultado:** Laptop, Silla, Mesa, Audífonos y Lámpara.
+
+### 3.2 Transformación
+
+**Pregunta:** ¿Cuáles son los nombres de todos los productos?
+
+- Se utiliza `map` para transformar cada producto y obtener únicamente su nombre.
+
+**Resultado:** Laptop, Mouse, Teclado, Silla, Mesa, Cuaderno, Lápiz, Mochila, Audífonos y Lámpara.
+
+### 3.3 Validación
+
+**Pregunta:** ¿Existe algún producto que no tenga stock?
+
+- Se utiliza `exists` para comprobar si al menos un producto cumple con la condición de tener stock igual a cero. Devuelve un valor booleano.
+
+**Resultado:** `false`, porque todos los productos tienen unidades disponibles.
+
+### 3.4 Conteo
+
+**Pregunta:** ¿Cuántos productos tienen un precio mayor a $30?
+
+- Se utiliza `count` para contar cuántos productos cumplen con la condición establecida.
+
+**Resultado:** 5 productos.
+
   
 
 
