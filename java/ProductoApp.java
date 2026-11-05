@@ -1,0 +1,45 @@
+package Taller;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ProductoApp {
+
+    static class Producto {
+        String nombre;
+        String categoria;
+        double precio;
+        int stock;
+
+        Producto(String nombre, String categoria,
+                 double precio, int stock) {
+            this.nombre = nombre;
+            this.categoria = categoria;
+            this.precio = precio;
+            this.stock = stock;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        List<Producto> productos = Arrays.asList(
+            new Producto("Laptop", "Tecnología", 800, 5),
+            new Producto("Mouse", "Tecnología", 15, 20),
+            new Producto("Teclado", "Tecnología", 30, 12),
+            new Producto("Silla", "Muebles", 120, 8),
+            new Producto("Mesa", "Muebles", 200, 4),
+            new Producto("Cuaderno", "Papelería", 3, 50),
+            new Producto("Lápiz", "Papelería", 1, 100),
+            new Producto("Mochila", "Accesorios", 25, 15),
+            new Producto("Audífonos", "Tecnología", 45, 10),
+            new Producto("Lámpara", "Hogar", 35, 7)
+        );
+
+      
+        System.out.println("Productos con precio mayor a $30:");
+        productos.stream()
+            .filter(p -> p.precio > 30)
+            .forEach(p -> System.out.println(p.nombre));
+    }
+}
