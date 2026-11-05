@@ -143,7 +143,7 @@ Para esta parte elegí cuatro operaciones de las colecciones de Scala:
 
  ### 4.2 Fichas de cada operación
 
-#### 1. sortBy – Ordenar
+### 1. sortBy – Ordenar
 
 **¿Qué hace?**
 
@@ -200,7 +200,7 @@ Permite organizar los productos por categorías para conocer qué artículos per
 
 ---
 
-#### 3. partition – Dividir una lista
+### 3. partition – Dividir una lista
 
 **¿Qué hace?**
 
@@ -230,7 +230,7 @@ Permite separar los productos costosos de los económicos para analizar sus prec
 
 ---
 
-#### 4. find – Buscar
+### 4. find – Buscar
 
 **¿Qué hace?**
 
